@@ -1,8 +1,8 @@
 # -*- coding:Utf-8 -*-
 # !/usr/bin/env python3.5
 # ------------------------------------------------------------------------------
-# Author:  Arthur JOVART
-# E-mail:  jovart.arthur@gmail.com
+# Author:  Arthur jo***t
+# E-mail:  jo***t.arthur@gmail.com
 # Name:    defi 4.1
 # Purpose: Demande deux valeurs a et b en pixel et trace sous turtle le vecteur
 #          AB de coordonnées (a,b).

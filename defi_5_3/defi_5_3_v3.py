@@ -1,8 +1,8 @@
 # -*- coding:Utf-8 -*-
 #!/usr/bin/env python3.5
 # ------------------------------------------------------------------------------
-# Author : Arthur JOVART
-# E-mail : jovart.arthur@gmail.com
+# Author : Arthur jo***t
+# E-mail : jo***t.arthur@gmail.com
 # Name   : defi 5.3
 # Purpose: Nature d'un triangle
 #          entrée sur STDIN, sortie STDOUT
