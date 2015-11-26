@@ -13,7 +13,7 @@
 # -------------------------------------------------------------------------------
 import random
 
-list = [random.randrange(1,10), random.randrange(1,10)]
+list = [random.randint(1,10), random.randint(1,10)]
 i = 1
 print(list)
 while int(input("Entrez un nombre >")) not in list:
