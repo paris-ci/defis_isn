@@ -21,3 +21,11 @@ while int(input("Entrez un nombre >")) not in list:
     print("Non, c'est pas ca")
 
 print("Bravo!! Tu as trouvé en " + str(i) + " essais.")
+
+pair = []
+impair = []
+for i in range(1,1000):
+    if i % 2 == 0:
+        pair.append(i)
+    else:
+        impair.append(i)
