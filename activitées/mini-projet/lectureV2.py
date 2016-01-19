@@ -11,8 +11,6 @@ __licence__ = "WTFPL — 2016"
 
 import os
 from collections import deque
-import tkinter as Tk
-import statistics
 
 def _createMeta(img_list):
     # img_format = img_file[0] #P1
@@ -107,52 +105,3 @@ def lire(fichier):
     return image
 
 
-def afficher(image_dict):
-    """ Affiche une image à  partir d'une matrice"""
-
-    listPix = image_dict["img"]
-
-    listPix = deque(listPix)
-
-    col = image_dict["meta"]["col"]
-    lig = image_dict["meta"]["lig"]
-
-    t = 400//max(lig,col)
-
-    fen = Tk.Tk()
-    fen.title("Image " + str(col) + "x" + str(lig))
-    can = Tk.Canvas(fen, width = col*t + 18, height = lig*t + 18, bg = 'white')
-    can.pack(side = Tk.TOP, padx = 5, pady = 5)
-
-
-    for y in range(lig) :
-        for x in range(col) :
-            r, v, b = listPix.popleft()
-            color = '#%02x%02x%02x' % (int(r),int(v),int(b))
-            can.create_rectangle(10+x*t, 10+y*t, 10+(x+1)*t, 10+(y+1)*t, outline = color, fill = color)
-
-    fen.mainloop()
-
-
-def toGrayScale(image_dict):
-    listpix = image_dict["img"]
-    newlist = []
-    for pixel in listpix:
-        r, v, b = pixel
-        moyenne = int(statistics.mean([int(r), int(v), int(b)]))
-        newlist.append((moyenne, moyenne, moyenne))
-    image_dict["img"] = newlist
-    return image_dict
-
-def toBlackAndWhite(image_dict):
-    image_dict = toGrayScale(image_dict)
-    listpix = image_dict["img"]
-    newlist = []
-    for pixel in listpix:
-        r, v, b = pixel
-        if r >= 127:
-            newlist.append((255, 255, 255))
-        else:
-            newlist.append((0, 0, 0))
-    image_dict["img"] = newlist
-    return image_dict
