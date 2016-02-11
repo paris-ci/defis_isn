@@ -14,7 +14,6 @@
 # -------------------------------------------------------------------------------
 
 import turtle, random
-wn = turtle.Screen()
 smiles = turtle.Turtle()
 smiles.shape("circle")
 
