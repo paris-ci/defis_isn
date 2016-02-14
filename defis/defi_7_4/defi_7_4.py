@@ -5,15 +5,15 @@ t.speed(0)
 
 def floc(l):
     if l < 3:
-        t.forward(l)
+        t.forward(l + 10)
         return
-    floc(l / 3)
+    floc(l / 2)
     t.lt(60)
-    floc(l / 3)
+    floc(l / 2)
     t.rt(120)
-    floc(l / 3)
+    floc(l / 2)
     t.lt(60)
-    floc(l / 3)
+    floc(l / 2)
 
 
 def flocon(l):
@@ -21,7 +21,7 @@ def flocon(l):
         floc(l)
         t.rt(120)
 
-n = input("Combien d'itérations ? >")
+n = int(input("Combien d'itérations ? >"))
 
 flocon(n)
 turtle.exitonclick()

@@ -1,35 +1,29 @@
 # -*- coding:Utf-8 -*-
 # !/usr/bin/env python3.5
-"""
-defis -- defi_8_2
-MODULE DESC 
-"""
 # Constants #
 
 __author__ = "Arthur — paris-ci"
 __licence__ = "WTFPL — 2016"
 
-def cesarC(mot, cle):
-    enc = ""
-    l=len(mot)
-    mot=mot.replace(" ","")
-    mot = mot.upper()
 
-    for i in range(l):
-        asc=ord(mot[i])
-        mot=mot.replace(" ","")
-        if asc>=65 or asc<=90:
-            asc += cle
-            if asc>91:
-                asc -= 26
-            if asc<65:
-                asc += 26
-        enc += chr(asc)
+def cesarC(message, shift):
+    message = message.lower()
+    secret = ""
+    for c in message:
+        if c.isalpha():
+            num = ord(c)
+            num += shift
+            if num > ord("z"):     # wrap
+                num -= 26
+            elif num < ord("a"):
+                num += 26
+            secret += chr(num)
+        else:
+            secret += c
 
-    return enc
+    return secret
 
 def supprime_accent(chaine):
-    """ supprime les accents du texte source """
     accent = ['é', 'è', 'ê', 'à', 'ù', 'û', 'ç', 'ô', 'î', 'ï', 'â']
     sans_accent = ['e', 'e', 'e', 'a', 'u', 'u', 'c', 'o', 'i', 'i', 'a']
 
@@ -42,14 +36,12 @@ def supprime_accent(chaine):
 def warppercesarC(mot, cle):
     mot = mot.lower()
     mot = supprime_accent(mot)
-    mot = mot.upper()
     mots = mot.split(" ")
     final = ""
     for mot in mots:
-        final += cesarC(mot, cle)
+        final += " " + cesarC(mot, - cle)
 
-    print(final)
-cle = int("-" + str(input("Entrez la clé > ")))
-message = str(input("message >"))
+    return final
 
-warppercesarC(message, cle)
+
+print(warppercesarC("PAZZQL-YAU GZ BAUZF P'MBBGU, QF GZ XQHUQD, VQ EAGXQHQDMU XQ YAZPQ", 12))
